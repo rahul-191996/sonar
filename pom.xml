@@ -34,7 +34,7 @@
 		<username>api_247</username>
 		<password>Api247</password>
 		<environment>Sandbox</environment>
-       <applicationName>cicd-app-demo</applicationName>
+       <applicationName>sonar-demo</applicationName>
 <workerType>MICRO</workerType>
 		<businessGroup>rahul</businessGroup>
 		

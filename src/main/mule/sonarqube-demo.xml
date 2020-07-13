@@ -10,7 +10,15 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</http:listener-config>
 	<configuration-properties doc:name="Configuration properties" doc:id="1d23413a-8c3c-4644-861f-51243308ccb0" file="api\config.yaml" />
 	<flow name="sonarqube-demoFlow" doc:id="9c7ef74e-d474-475f-8ff7-cd2bd3ab4a6a" >
-		<http:listener doc:name="Listener" doc:id="7444def9-b2c0-4f02-bae0-739efdf48908" config-ref="HTTP_Listener_config" path="${http.path}"/>
+		<http:listener doc:name="Listener" doc:id="7444def9-b2c0-4f02-bae0-739efdf48908" config-ref="HTTP_Listener_config" path="${http.path}">
+			<http:response >
+				<http:headers ><![CDATA[#[output application/java
+---
+{
+	"header" : "def"
+}]]]></http:headers>
+			</http:response>
+		</http:listener>
 		<set-payload value='#["sonarQube-integration"]' doc:name="Set Payload" doc:id="d61ad6bd-4da1-4b9b-b148-5c59c828921a" />
 		<ee:transform doc:name="Transform Message" doc:id="d2c17711-0e61-4a84-a14a-84196f26ce1e" >
 			<ee:message >

@@ -6,10 +6,11 @@
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="91783216-26cf-4b6a-8065-f2212fcae88a" >
-		<http:listener-connection host="0.0.0.0" port="8081" />
+		<http:listener-connection host="${http.host}" port="${http.port}" />
 	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="1d23413a-8c3c-4644-861f-51243308ccb0" file="api\config.yaml" />
 	<flow name="sonarqube-demoFlow" doc:id="9c7ef74e-d474-475f-8ff7-cd2bd3ab4a6a" >
-		<http:listener doc:name="Listener" doc:id="7444def9-b2c0-4f02-bae0-739efdf48908" config-ref="HTTP_Listener_config" path="/rahul"/>
+		<http:listener doc:name="Listener" doc:id="7444def9-b2c0-4f02-bae0-739efdf48908" config-ref="HTTP_Listener_config" path="${http.path}"/>
 		<set-payload value='#["sonarQube-integration"]' doc:name="Set Payload" doc:id="d61ad6bd-4da1-4b9b-b148-5c59c828921a" />
 		<ee:transform doc:name="Transform Message" doc:id="d2c17711-0e61-4a84-a14a-84196f26ce1e" >
 			<ee:message >
@@ -19,6 +20,6 @@ output application/json
 payload]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<logger level="INFO" doc:name="Logger" doc:id="47464584-df64-48aa-9a83-ad11844ca0a0" message="#[payload]" category="monitoring" />
+		<logger level="INFO" doc:name="Logger" doc:id="47464584-df64-48aa-9a83-ad11844ca0a0" message="#[payload]" category="performance" />
 	</flow>
 </mule>

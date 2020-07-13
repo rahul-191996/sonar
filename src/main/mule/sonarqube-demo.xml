@@ -8,7 +8,7 @@
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="91783216-26cf-4b6a-8065-f2212fcae88a" >
-		<http:listener-connection host="${http.host}" port="${http.port}" />
+		<http:listener-connection host="${http.host}" port="8081" />
 	</http:listener-config>
 	<configuration-properties doc:name="Configuration properties" doc:id="1d23413a-8c3c-4644-861f-51243308ccb0" file="api\config.yaml" />
 	<flow name="sonarqube-demoFlow" doc:id="9c7ef74e-d474-475f-8ff7-cd2bd3ab4a6a" >

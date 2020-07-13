@@ -17,7 +17,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 				<http:headers ><![CDATA[#[output application/java
 ---
 {
-	"header" : "abc"
+	"header" : "def"
 }]]]></http:headers>
 			</http:response>
 		</http:listener>
